@@ -1,9 +1,11 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-
-import { LoginComponent } from './login.component';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {By, BrowserModule} from '@angular/platform-browser';
+import {DebugElement} from '@angular/core';
+import {LoginComponent} from './login.component';
+import {FormsModule} from "@angular/forms";
+import {HttpModule} from "@angular/http";
+import {MaterialModule} from "@angular/material";
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -11,9 +13,15 @@ describe('LoginComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginComponent ]
+      declarations: [LoginComponent],
+      imports: [
+        BrowserModule,
+        FormsModule,
+        HttpModule,
+        MaterialModule.forRoot(),
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -26,11 +34,14 @@ describe('LoginComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should contain username', () => {
-    expect(component.username).toBeDefined();
+  it('should not be enabled initially', () => {
+    expect(component.loginEnabled).toBeFalsy();
   });
 
-  it('should contain password', () => {
-    expect(component.password).toBeDefined();
+  it('should should be enabled after entring user/pass', () => {
+    component.username = 'amin';
+    component.password = 'test';
+    component.onChange();
+    expect(component.loginEnabled).toBeTruthy();
   })
 });

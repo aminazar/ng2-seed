@@ -9,9 +9,17 @@ import {
 } from "@angular/http";
 import {FormsModule} from "@angular/forms";
 import {AuthService} from './auth.service';
+import {MaterialModule} from "@angular/material";
+import {HomeComponent} from './home/home.component';
+import {Router} from "@angular/router";
+import {routerNgProbeToken} from "@angular/router/src/router_module";
+class RouterStub {
+  navigateByUrl(url: string) { return url; }
+  navigate(url: string){ return url; }
+};
 
 describe('Service: Auth', () => {
-  let mockBackend: MockBackend, restService: RestService, authService: AuthService;
+  let mockBackend: MockBackend, restService: RestService, authService: AuthService, router:any;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       providers: [
@@ -19,6 +27,7 @@ describe('Service: Auth', () => {
         AuthService,
         MockBackend,
         BaseRequestOptions,
+        { provide: Router,      useClass: RouterStub },
         {
           provide: Http,
           deps: [MockBackend, BaseRequestOptions],
@@ -27,9 +36,11 @@ describe('Service: Auth', () => {
           }
         }
       ],
+      declarations:[HomeComponent],
       imports: [
         FormsModule,
-        HttpModule
+        HttpModule,
+        MaterialModule.forRoot(),
       ],
     });
 
@@ -37,6 +48,7 @@ describe('Service: Auth', () => {
     mockBackend = getTestBed().get(MockBackend);
     restService = getTestBed().get(RestService);
     authService = getTestBed().get(AuthService);
+    router      = getTestBed().get(Router);
   }));
 
   it('should be injected', inject([AuthService], (service: AuthService) => {
@@ -44,6 +56,7 @@ describe('Service: Auth', () => {
   }));
 
   it(`should call login with HTTP`, async(() => {
+    let spy = spyOn(router,'navigate');
     mockBackend.connections.subscribe(
       (connection: MockConnection) => {
         expect(connection.request.url).toBe('/api/login');
