@@ -11,7 +11,7 @@ import {FormsModule} from "@angular/forms";
 import {AuthService} from './auth.service';
 import {MaterialModule} from "@angular/material";
 import {HomeComponent} from './home/home.component';
-import {Router} from "@angular/router";
+import {Router, RouterModule} from "@angular/router";
 import {routerNgProbeToken} from "@angular/router/src/router_module";
 class RouterStub {
   navigateByUrl(url: string) { return url; }
@@ -41,6 +41,7 @@ describe('Service: Auth', () => {
         FormsModule,
         HttpModule,
         MaterialModule.forRoot(),
+        RouterModule,
       ],
     });
 

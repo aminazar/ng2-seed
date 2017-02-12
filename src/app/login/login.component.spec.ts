@@ -7,6 +7,11 @@ import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import {MaterialModule} from "@angular/material";
 
+import {AuthService} from "../auth.service";
+import {RestService} from "../rest.service";
+import {RouterTestingModule} from "@angular/router/testing";
+import 'hammerjs';
+
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
@@ -19,7 +24,9 @@ describe('LoginComponent', () => {
         FormsModule,
         HttpModule,
         MaterialModule.forRoot(),
-      ]
+        RouterTestingModule
+      ],
+      providers: [AuthService, RestService]
     })
       .compileComponents();
   }));
