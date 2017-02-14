@@ -14,8 +14,10 @@ describe('HomeComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ HomeComponent ],
-      imports: [RouterModule],
-      providers: [RouterOutletMap, RouterTestingModule]
+      imports: [
+        RouterTestingModule
+      ],
+      providers: [RouterOutletMap, ]
     })
     .compileComponents();
   }));

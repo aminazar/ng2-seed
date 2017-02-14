@@ -26,9 +26,12 @@ export class AuthService {
   }
 
   logOff() {
-    this.restService.get('logout')
-      .subscribe(() => {
-        this.authStream.next(false)
-      });
+    this.restService.call('logout')
+      .subscribe(
+        () => {
+          this.authStream.next(false)
+        },
+        err => console.log(err)
+      );
   }
 }
