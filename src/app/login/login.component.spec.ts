@@ -1,7 +1,6 @@
 /* tslint:disable:no-unused-variable */
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {By, BrowserModule} from '@angular/platform-browser';
-import {DebugElement} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 import {LoginComponent} from './login.component';
 import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
@@ -11,6 +10,7 @@ import {AuthService} from "../auth.service";
 import {RestService} from "../rest.service";
 import {RouterTestingModule} from "@angular/router/testing";
 import 'hammerjs';
+import {MessageService} from "../message.service";
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -26,7 +26,7 @@ describe('LoginComponent', () => {
         MaterialModule.forRoot(),
         RouterTestingModule
       ],
-      providers: [AuthService, RestService]
+      providers: [AuthService, RestService, MessageService]
     })
       .compileComponents();
   }));
@@ -47,7 +47,7 @@ describe('LoginComponent', () => {
 
   it('should should be enabled after entring user/pass', () => {
     component.username = 'amin';
-    component.password = 'test';
+    component.password = 'test123';
     component.onChange();
     expect(component.loginEnabled).toBeTruthy();
   })

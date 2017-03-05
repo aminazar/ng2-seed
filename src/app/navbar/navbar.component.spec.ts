@@ -1,14 +1,13 @@
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import {By, BrowserModule} from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-
+import {BrowserModule} from '@angular/platform-browser';
 import { NavbarComponent } from './navbar.component';
 import {RouterModule, RouterOutletMap} from "@angular/router";
 import {MaterialModule} from "@angular/material";
 import {RouterTestingModule} from "@angular/router/testing";
 import {AuthService} from "../auth.service";
 import {RestService} from "../rest.service";
+import {MessageService} from "../message.service";
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
@@ -22,7 +21,7 @@ describe('NavbarComponent', () => {
         MaterialModule.forRoot(),
         RouterTestingModule,
       ],
-      providers: [RouterOutletMap, AuthService, RestService]
+      providers: [RouterOutletMap, AuthService, RestService, MessageService]
     })
     .compileComponents();
   }));
