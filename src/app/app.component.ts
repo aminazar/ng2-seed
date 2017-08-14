@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {MessageService} from "./message.service";
 import {MdSnackBar} from "@angular/material";
+import 'hammerjs';
+
+
 
 @Component({
   selector: 'app-root',

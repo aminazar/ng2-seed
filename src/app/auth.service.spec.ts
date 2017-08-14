@@ -65,7 +65,7 @@ describe('Service: Auth', () => {
       imports: [
         FormsModule,
         HttpModule,
-        MaterialModule.forRoot(),
+        // MaterialModule.forRoot(),
         RouterModule,
       ],
     });

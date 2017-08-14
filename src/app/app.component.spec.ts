@@ -34,7 +34,7 @@ describe('App: Burgista Internal Delivery', () => {
         BrowserModule,
         FormsModule,
         HttpModule,
-        MaterialModule.forRoot(),
+        // MaterialModule.forRoot(),
         RouterTestingModule.withRoutes([
           {path: '',      component: HomeComponent, pathMatch: 'full'},
           {path: 'login', component: LoginComponent}

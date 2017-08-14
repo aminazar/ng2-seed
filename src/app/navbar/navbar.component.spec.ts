@@ -2,7 +2,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {BrowserModule} from '@angular/platform-browser';
 import { NavbarComponent } from './navbar.component';
-import {RouterModule, RouterOutletMap} from "@angular/router";
+import {RouterModule} from "@angular/router";
 import {MaterialModule} from "@angular/material";
 import {RouterTestingModule} from "@angular/router/testing";
 import {AuthService} from "../auth.service";
@@ -18,10 +18,9 @@ describe('NavbarComponent', () => {
       declarations: [ NavbarComponent],
       imports: [RouterModule,
         BrowserModule,
-        MaterialModule.forRoot(),
         RouterTestingModule,
       ],
-      providers: [RouterOutletMap, AuthService, RestService, MessageService]
+      providers: [AuthService, RestService, MessageService]
     })
     .compileComponents();
   }));

@@ -23,7 +23,6 @@ describe('LoginComponent', () => {
         BrowserModule,
         FormsModule,
         HttpModule,
-        MaterialModule.forRoot(),
         RouterTestingModule
       ],
       providers: [AuthService, RestService, MessageService]
