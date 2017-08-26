@@ -1,0 +1,9 @@
+<div [style.text-align]="msg.sender === authService.user ? 'right' : 'left'">
+  <div>
+    <label class="sender-log" *ngIf="authService.user !== msg.sender">{{msg.sender}}</label>
+    <label class="sender-log" *ngIf="authService.user === msg.sender">You</label>
+  </div>
+  <div>
+    <label class="msg-log">{{msg.data}}</label>
+  </div>
+</div>

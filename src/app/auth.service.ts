@@ -4,6 +4,7 @@ import {RestService} from "./rest.service";
 import {Router} from "@angular/router";
 import {MessageService} from "./message.service";
 import {Observable} from "rxjs";
+import {SocketService} from "./socket.service";
 
 @Injectable()
 export class AuthService {
@@ -13,7 +14,8 @@ export class AuthService {
   auth$:Observable<boolean> = this.authStream.asObservable();
   originBeforeLogin = '/';
 
-  constructor(private restService: RestService, private router: Router, private messageService:MessageService) {
+  constructor(private restService: RestService, private router: Router,
+              private messageService:MessageService, private socketService: SocketService) {
     this.restService.call('validUser')
       .subscribe(
         res => {
@@ -50,6 +52,7 @@ export class AuthService {
     this.user = data.user;
     this.userType = data.userType;
     this.authStream.next(true);
+    this.socketService.connect(this.user);
   }
 
   logOff() {
