@@ -1,0 +1,30 @@
+<div class="chat-back">
+  <div class="chat-header" style="min-width: 200px;">
+    <label>Chat with others</label>
+    <div style="position: absolute; left: auto; right: 5px; top: 3px;">
+      <i *ngIf="isCollapse" class="fa fa-plus" style="cursor: pointer;" (click)="collapseAction(false)" aria-hidden="true"></i>
+      <i *ngIf="!isCollapse" class="fa fa-minus" style="cursor: pointer;" (click)="collapseAction(true)" aria-hidden="true"></i>
+    </div>
+  </div>
+  <div *ngIf="!isCollapse" style="padding: 7px;">
+    <hr style="margin: 5px;"/>
+    <div *ngIf="isLoggedIn">
+      <div class="log-back">
+        <app-chat-log *ngFor="let msg of messages" [message]="msg"></app-chat-log>
+      </div>
+      <div style="margin-top: 5px;">
+        <md-grid-list cols="2" rowHeight="30">
+          <md-grid-tile>
+            <input pInputText type="text" placeholder="Messsage..." (keydown)="keyboardCheck($event)" [(ngModel)]="msg">
+          </md-grid-tile>
+          <md-grid-tile>
+            <i style="cursor: pointer;" class="fa fa-paper-plane" aria-hidden="true" (click)="send()"></i>
+          </md-grid-tile>
+        </md-grid-list>
+      </div>
+    </div>
+    <div *ngIf="!isLoggedIn">
+      <label>Please login to able to chat</label>
+    </div>
+  </div>
+</div>

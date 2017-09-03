@@ -16,39 +16,46 @@ import {FocusDirective} from './focus.directive';
 import {MessageService} from "./message.service";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
-    MdButtonModule, MdCheckboxModule, MdSnackBarModule, MdInputModule, MdToolbarModule,
-    MdCardModule, MdIconModule
+  MdButtonModule, MdCheckboxModule, MdSnackBarModule, MdInputModule, MdToolbarModule,
+  MdCardModule, MdIconModule
 } from '@angular/material';
+import {InputTextModule} from 'primeng/primeng';
+import {ChatComponent} from './chat/chat.component';
+import {ChatLogComponent} from "./chat/chat-log.component";
+import {SocketService} from "./socket.service";
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        LoginComponent,
-        NavbarComponent,
-        HomeComponent,
-        FocusDirective,
-    ],
-    imports: [
-        BrowserModule,
-        FormsModule,
-        HttpModule,
-        BrowserAnimationsModule,
-        FlexLayoutModule,
-        ReactiveFormsModule,
-        MdButtonModule,
-        MdCheckboxModule,
-        MdSnackBarModule,
-        MdInputModule,
-        MdToolbarModule,
-        MdCardModule,
-        MdIconModule,
-        RouterModule.forRoot([
-            {path: '', component: HomeComponent, pathMatch: 'full'},
-            {path: 'login', component: LoginComponent},
-        ]),
-    ],
-    providers: [AuthService, RestService, LoggedInGuard, MessageService],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    NavbarComponent,
+    HomeComponent,
+    FocusDirective,
+    ChatComponent,
+    ChatLogComponent,
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    BrowserAnimationsModule,
+    FlexLayoutModule,
+    ReactiveFormsModule,
+    MdButtonModule,
+    MdCheckboxModule,
+    MdSnackBarModule,
+    MdInputModule,
+    MdToolbarModule,
+    MdCardModule,
+    MdIconModule,
+    InputTextModule,
+    RouterModule.forRoot([
+      {path: '', component: HomeComponent, pathMatch: 'full'},
+      {path: 'login', component: LoginComponent},
+    ]),
+  ],
+  providers: [AuthService, RestService, LoggedInGuard, MessageService, SocketService],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 }

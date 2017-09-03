@@ -1,0 +1,23 @@
+.chat-back{
+  background-color: rgba(139,152,255,0.71);
+  border: solid rgba(70,75,139,0.71) 1px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.log-back{
+  background-color: white;
+  overflow: hidden;
+  max-height: 300px;
+  min-height: 300px;
+}
+
+.log-back:hover{
+  overflow-y: scroll;
+}
+
+.chat-header{
+  text-align: center;
+  vertical-align: top;
+  font-weight: bold;
+}
