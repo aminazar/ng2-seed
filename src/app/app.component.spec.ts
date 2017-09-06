@@ -4,18 +4,22 @@ import {TestBed, async, ComponentFixture, getTestBed} from '@angular/core/testin
 import {AppComponent} from './app.component';
 import {NavbarComponent} from "./navbar/navbar.component";
 import {HomeComponent} from "./home/home.component";
-import {Router} from "@angular/router";
-import {RouterTestingModule} from "@angular/router/testing";
+import {Router, RouterModule} from "@angular/router";
+
 import {LoginComponent} from "./login/login.component";
 import {BrowserModule} from "@angular/platform-browser";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {MaterialModule} from "@angular/material";
+import { MdCheckboxModule, MdButtonModule, MdSnackBarModule, MdInputModule,
+  MdToolbarModule, MdCardModule, MdIconModule
+} from "@angular/material";
 import {HttpModule, BaseRequestOptions, Http, XHRBackend} from "@angular/http";
 import {AuthService} from "./auth.service";
 import {RestService} from "./rest.service";
 import {LoggedInGuard} from "./login/logged-in.guard";
 import {MessageService} from "./message.service";
 import {MockBackend} from "@angular/http/testing";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {FlexLayoutModule} from "@angular/flex-layout";
 
 describe('App: Burgista Internal Delivery', () => {
   let app : AppComponent;
@@ -34,10 +38,22 @@ describe('App: Burgista Internal Delivery', () => {
         BrowserModule,
         FormsModule,
         HttpModule,
-        // MaterialModule.forRoot(),
-        RouterTestingModule.withRoutes([
-          {path: '',      component: HomeComponent, pathMatch: 'full'},
-          {path: 'login', component: LoginComponent}
+        BrowserModule,
+        FormsModule,
+        HttpModule,
+        BrowserAnimationsModule,
+        FlexLayoutModule,
+        ReactiveFormsModule,
+        MdButtonModule,
+        MdCheckboxModule,
+        MdSnackBarModule,
+        MdInputModule,
+        MdToolbarModule,
+        MdCardModule,
+        MdIconModule,
+        RouterModule.forRoot([
+          {path: '', component: HomeComponent, pathMatch: 'full'},
+          {path: 'login', component: LoginComponent},
         ]),
         ReactiveFormsModule,
       ],
@@ -78,6 +94,6 @@ describe('App: Burgista Internal Delivery', () => {
   });
 
   it(`should have as title 'app works!'`, () => {
-    expect(app.title).toEqual('app works!');
+    expect(app.title).toEqual('appp works!');
   });
 });

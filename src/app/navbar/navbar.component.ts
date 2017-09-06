@@ -15,7 +15,7 @@ interface navLink{
 export class NavbarComponent implements OnInit {
   private auth: boolean;
   private user: string;
-  private isAdmin: boolean;
+  isAdmin: boolean;
 
   constructor(private authService: AuthService, private router:Router) {
   }
