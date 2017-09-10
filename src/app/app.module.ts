@@ -23,6 +23,7 @@ import {InputTextModule} from 'primeng/primeng';
 import {ChatComponent} from './chat/chat.component';
 import {ChatLogComponent} from "./chat/chat-log.component";
 import {SocketService} from "./socket.service";
+import {UsersComponent} from "./users/users.component";
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import {SocketService} from "./socket.service";
     FocusDirective,
     ChatComponent,
     ChatLogComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,

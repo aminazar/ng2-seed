@@ -9,7 +9,7 @@ import {AuthService} from "../auth.service";
 export class ChatLogComponent implements OnInit {
   @Input('message') msg;
 
-  constructor(private authService: AuthService) { }
+  constructor(public authService: AuthService) { }
 
   ngOnInit() {
   }

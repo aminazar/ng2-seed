@@ -3,8 +3,6 @@ import {MessageService} from "./message.service";
 import {MdSnackBar} from "@angular/material";
 import 'hammerjs';
 
-
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,7 +10,7 @@ import 'hammerjs';
 })
 export class AppComponent implements OnInit {
   title = 'app works!';
-  private showError = false;
+  showError = false;
   private error: string;
 
   constructor(private messageService: MessageService, public snackBar: MdSnackBar) {
