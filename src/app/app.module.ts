@@ -17,12 +17,13 @@ import {MessageService} from "./message.service";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
   MdButtonModule, MdCheckboxModule, MdSnackBarModule, MdInputModule, MdToolbarModule,
-  MdCardModule, MdIconModule
+  MdCardModule, MdIconModule, MdGridListModule
 } from '@angular/material';
 import {InputTextModule} from 'primeng/primeng';
 import {ChatComponent} from './chat/chat.component';
 import {ChatLogComponent} from "./chat/chat-log.component";
 import {SocketService} from "./socket.service";
+
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import {SocketService} from "./socket.service";
     HttpModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
+    FormsModule,
     ReactiveFormsModule,
     MdButtonModule,
     MdCheckboxModule,
@@ -49,12 +51,14 @@ import {SocketService} from "./socket.service";
     MdCardModule,
     MdIconModule,
     InputTextModule,
+    MdGridListModule,
     RouterModule.forRoot([
       {path: '', component: HomeComponent, pathMatch: 'full'},
       {path: 'login', component: LoginComponent},
     ]),
   ],
-  providers: [AuthService, RestService, LoggedInGuard, MessageService, SocketService],
+  providers: [
+               AuthService, RestService, LoggedInGuard, MessageService, SocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

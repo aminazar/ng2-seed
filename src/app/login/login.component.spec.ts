@@ -14,6 +14,7 @@ import {RouterTestingModule} from "@angular/router/testing";
 import 'hammerjs';
 import {MessageService} from "../message.service";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {SocketService} from "../socket.service";
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -33,7 +34,7 @@ describe('LoginComponent', () => {
         MdIconModule,
         MdCardModule,
       ],
-      providers: [AuthService, RestService, MessageService]
+      providers: [AuthService, RestService, MessageService, SocketService]
     })
       .compileComponents();
   }));

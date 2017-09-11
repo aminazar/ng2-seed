@@ -65,11 +65,11 @@ describe('NavbarComponent', () => {
     fixture.detectChanges();
   });
 
-  fit('should create', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  fit('should observe login', () => {
+  it('should observe login', () => {
     authServiceMock.mockLogin('xyz','admin');
     expect(component.isAdmin).toBe(true);
     fixture.detectChanges();
@@ -80,7 +80,7 @@ describe('NavbarComponent', () => {
     // },1000);
   })
 
-  fit('should observe logout', () =>{
+  it('should observe logout', () =>{
     authServiceMock.mockLogout();
     expect(compiled.querySelectorAll('a')[0].innerText).toContain('Ng2 Seed');
     expect(compiled.querySelectorAll('a')[1].innerText).toContain('Login');
