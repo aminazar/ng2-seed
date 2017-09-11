@@ -64,7 +64,7 @@ class RestMock {
   }
 }
 
-fdescribe('Service: Auth', () => {
+describe('Service: Auth', () => {
   let  restService: RestMock, authService: AuthService, router: any;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
