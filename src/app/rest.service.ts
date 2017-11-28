@@ -34,6 +34,6 @@ export class RestService {
   }
 
   update(table, id, values): Observable<Response>{
-    return this.http.post('/api/' + table + (id ? '/' + id : ''), values)
+    return this.http.post('/api/' + table + (id ? '/' + id : ''), values);
   }
 }

@@ -4,20 +4,29 @@ import {TestBed, async, ComponentFixture, getTestBed} from '@angular/core/testin
 import {AppComponent} from './app.component';
 import {NavbarComponent} from "./navbar/navbar.component";
 import {HomeComponent} from "./home/home.component";
-import {Router} from "@angular/router";
-import {RouterTestingModule} from "@angular/router/testing";
+import {Router, RouterModule} from "@angular/router";
+
 import {LoginComponent} from "./login/login.component";
 import {BrowserModule} from "@angular/platform-browser";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {MaterialModule} from "@angular/material";
+import { MdCheckboxModule, MdButtonModule, MdSnackBarModule, MdInputModule,
+  MdToolbarModule, MdCardModule, MdIconModule
+} from "@angular/material";
 import {HttpModule, BaseRequestOptions, Http, XHRBackend} from "@angular/http";
 import {AuthService} from "./auth.service";
 import {RestService} from "./rest.service";
 import {LoggedInGuard} from "./login/logged-in.guard";
 import {MessageService} from "./message.service";
 import {MockBackend} from "@angular/http/testing";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {FlexLayoutModule} from "@angular/flex-layout";
+import {ChatComponent} from "./chat/chat.component";
+import {ChatLogComponent} from "./chat/chat-log.component";
+import {RouterTestingModule} from "@angular/router/testing";
+import {SocketService} from "./socket.service";
+import {APP_BASE_HREF} from "@angular/common";
 
-describe('App: Burgista Internal Delivery', () => {
+describe('App: Ng2-seed', () => {
   let app : AppComponent;
   let fixture : ComponentFixture<AppComponent>;
   let mockBackend: MockBackend, restService: RestService, authService: AuthService, router: any;
@@ -29,15 +38,30 @@ describe('App: Burgista Internal Delivery', () => {
         NavbarComponent,
         HomeComponent,
         LoginComponent,
+        ChatComponent,
+        ChatLogComponent,
       ],
       imports: [
         BrowserModule,
         FormsModule,
         HttpModule,
-        // MaterialModule.forRoot(),
-        RouterTestingModule.withRoutes([
-          {path: '',      component: HomeComponent, pathMatch: 'full'},
-          {path: 'login', component: LoginComponent}
+        BrowserModule,
+        FormsModule,
+        HttpModule,
+        BrowserAnimationsModule,
+        FlexLayoutModule,
+        ReactiveFormsModule,
+        MdButtonModule,
+        MdCheckboxModule,
+        MdSnackBarModule,
+        MdInputModule,
+        MdToolbarModule,
+        MdCardModule,
+        MdIconModule,
+        RouterTestingModule,
+        RouterModule.forRoot([
+          {path: '', component: HomeComponent, pathMatch: 'full'},
+          {path: 'login', component: LoginComponent},
         ]),
         ReactiveFormsModule,
       ],
@@ -48,6 +72,7 @@ describe('App: Burgista Internal Delivery', () => {
         BaseRequestOptions,
         MessageService,
         LoggedInGuard,
+        SocketService,
         // {provide: Router, useClass: RouterStub},
         {
           provide: Http,
@@ -56,6 +81,7 @@ describe('App: Burgista Internal Delivery', () => {
             return new Http(backend, defaultOptions);
           }
         },
+        {provide: APP_BASE_HREF, useValue: '/'}
       ]
     })
       .compileComponents();
